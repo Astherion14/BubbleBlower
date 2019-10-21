@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Controles/Button.png","C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/bin/DesktopGL/Content/Controles/boton.xnb","TextureProcessor","Texture2DContent",324,25685,0,1117017
+"C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Fuentes/fuente.spritefont","C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/bin/DesktopGL/Content/Fuentes/fuente.xnb","FontDescriptionProcessor","SpriteFontContent",2015,37905,0,2443473
