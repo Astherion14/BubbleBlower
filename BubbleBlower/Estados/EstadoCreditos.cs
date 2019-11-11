@@ -9,16 +9,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace BubbleBlower.Estados
 {
-    public class EstadoJuego : Estado
+    public class EstadoCreditos : Estado
     {
-        public EstadoJuego(Game1 juego, GraphicsDevice graficos, ContentManager contenido)
+        public EstadoCreditos(Game1 juego, GraphicsDevice graficos, ContentManager contenido)
         : base(juego, graficos, contenido)
         {
-
         }
         public override void Actualizar(GameTime tiempo)
         {
-
         }
 
         public override void Dibujar(GameTime tiempo, SpriteBatch spriteBatch)
