@@ -22,12 +22,21 @@ namespace BubbleBlower
         private bool effectosSonido;
         private bool musica;
         private int vol;
+        private bool limpiar;
 
 
 
         private Estado estadoActual;
         private Estado estadoSiguiente;
 
+        public void setLimpiar(bool limp)
+        {
+            this.limpiar = limp;
+        }
+        public bool getLimpiar()
+        {
+            return this.limpiar;
+        }
         public void setEffectosSonido(bool efectosSonido)
         {
             this.effectosSonido = efectosSonido;
@@ -81,6 +90,7 @@ namespace BubbleBlower
             setMusica(true);
             setEffectosSonido(true);
             setVol(100);
+            setLimpiar(false);
             graficos.PreferredBackBufferWidth = 3 * GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 4;  // set this value to the desired width of your window
             graficos.PreferredBackBufferHeight = 3 * GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 4;   // set this value to the desired height of your window
             graficos.ApplyChanges();

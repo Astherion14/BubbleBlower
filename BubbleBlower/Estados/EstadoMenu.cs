@@ -23,6 +23,7 @@ namespace BubbleBlower.Estados
             var btnTextura = contenido.Load<Texture2D>("Controles/boton");
             var btnFuente = contenido.Load<SpriteFont>("Fuentes/fuente");
 
+
             var btnNuevo = new Boton(btnTextura, btnFuente)
             {
                 Posicion = new Vector2(ancho/20, 9*alto/10),

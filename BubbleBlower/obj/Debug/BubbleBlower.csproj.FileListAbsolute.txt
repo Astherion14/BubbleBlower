@@ -72,3 +72,16 @@ C:\Users\Garrund\Source\Repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\An
 C:\Users\Garrund\Source\Repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\BubbleBlower.pdb
 C:\Users\Garrund\Source\Repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\MonoGame.Framework.dll
 C:\Users\Garrund\Source\Repos\Garrund\BubbleBlower\BubbleBlower\obj\Debug\BubbleBlower.csproj.CopyComplete
+C:\Users\arturo.fernandez\source\repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Controles\background.xnb
+C:\Users\arturo.fernandez\source\repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Controles\barraVolumen.xnb
+C:\Users\arturo.fernandez\source\repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Objetos\esferaAzul.xnb
+C:\Users\arturo.fernandez\source\repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Objetos\esferaRoja.xnb
+C:\Users\arturo.fernandez\source\repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Objetos\esferaVerde.xnb
+C:\Users\arturo.fernandez\source\repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Objetos\esferaVioleta.xnb
+C:\Users\arturo.fernandez\source\repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Controles\cajaDesmarcada.xnb
+C:\Users\arturo.fernandez\source\repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Controles\cajaMarcada.xnb
+C:\Users\arturo.fernandez\source\repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Controles\masVolumen.xnb
+C:\Users\arturo.fernandez\source\repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Controles\menosVolumen.xnb
+C:\Users\arturo.fernandez\source\repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Controles\menuPrincipal.xnb
+C:\Users\arturo.fernandez\source\repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Fuentes\fuente2.xnb
+C:\Users\arturo.fernandez\source\repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Fuentes\fuente3.xnb

@@ -85,6 +85,27 @@
 /processorParam:TextureFormat=Color
 /build:Controles/menuPrincipal.png
 
+#begin Fuentes/fuente.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fuentes/fuente.spritefont
+
+#begin Fuentes/fuente2.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fuentes/fuente2.spritefont
+
+#begin Fuentes/fuente3.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fuentes/fuente3.spritefont
+
 #begin Objetos/esferaAzul.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -132,11 +153,4 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Objetos/esferaVioleta.png
-
-#begin Fuentes/fuente.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:PremultiplyAlpha=True
-/processorParam:TextureFormat=Compressed
-/build:Fuentes/fuente.spritefont
 

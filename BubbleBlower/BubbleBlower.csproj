@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Componente.cs" />
     <Compile Include="Controles\Boton.cs" />
+    <Compile Include="Controles\Burbuja.cs" />
     <Compile Include="Controles\Texto.cs" />
     <Compile Include="Estados\Estado.cs" />
     <Compile Include="Estados\EstadoCreditos.cs" />
