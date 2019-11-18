@@ -85,3 +85,5 @@ C:\Users\arturo.fernandez\source\repos\Garrund\BubbleBlower\BubbleBlower\bin\Des
 C:\Users\arturo.fernandez\source\repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Controles\menuPrincipal.xnb
 C:\Users\arturo.fernandez\source\repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Fuentes\fuente2.xnb
 C:\Users\arturo.fernandez\source\repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Fuentes\fuente3.xnb
+C:\Users\Garrund\Source\Repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Fuentes\fuente2.xnb
+C:\Users\Garrund\Source\Repos\Garrund\BubbleBlower\BubbleBlower\bin\DesktopGL\AnyCPU\Debug\Content\Fuentes\fuente3.xnb
