@@ -53,7 +53,18 @@ namespace BubbleBlower
 
         public void setVol(int volumen)
         {
-            this.vol = volumen;
+            if (volumen<0)
+            {
+                this.vol = 0;
+            }
+            else if (volumen>100)
+            {
+                this.vol = 100;
+            }
+            else
+            {
+                this.vol = volumen;
+            }
         }
 
 

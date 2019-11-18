@@ -105,8 +105,10 @@ namespace BubbleBlower.Estados
 
         public override void Actualizar(GameTime tiempo)
         {
+            
             foreach (var componente in componentes)
                 componente.Actualizar(tiempo);
+              
         }
 
     }
