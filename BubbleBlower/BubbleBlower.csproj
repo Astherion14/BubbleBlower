@@ -59,9 +59,13 @@
   <ItemGroup>
     <Compile Include="Componente.cs" />
     <Compile Include="Controles\Boton.cs" />
+    <Compile Include="Controles\Texto.cs" />
     <Compile Include="Estados\Estado.cs" />
+    <Compile Include="Estados\EstadoCreditos.cs" />
     <Compile Include="Estados\EstadoJuego.cs" />
     <Compile Include="Estados\EstadoMenu.cs" />
+    <Compile Include="Estados\EstadoOpciones.cs" />
+    <Compile Include="Estados\EstadoRecords.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

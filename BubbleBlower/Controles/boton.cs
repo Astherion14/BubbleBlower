@@ -55,7 +55,7 @@ namespace BubbleBlower.Controles
 
             fuente = font;
 
-            ColorDibujado = Color.Black;
+            ColorDibujado = Color.Blue;
         }
 
         public override void Dibujar(GameTime gameTime, SpriteBatch spriteBatch)
