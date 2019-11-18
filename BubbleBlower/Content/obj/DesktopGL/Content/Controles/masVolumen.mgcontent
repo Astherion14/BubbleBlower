@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Controles/masVolumen.png</SourceFile>
-  <SourceTime>2019-11-18T10:32:07.2951075+01:00</SourceTime>
+  <SourceTime>2019-11-18T10:44:52.3410579+01:00</SourceTime>
   <DestFile>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/bin/DesktopGL/Content/Controles/masVolumen.xnb</DestFile>
-  <DestTime>2019-11-18T10:36:42.0113912+01:00</DestTime>
+  <DestTime>2019-11-18T10:45:13.2911583+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
