@@ -18,22 +18,20 @@ namespace BubbleBlower.Estados
         public EstadoMenu(Game1 juego, GraphicsDevice graficos, ContentManager contenido)
           : base(juego, graficos, contenido)
         {
-            int ancho = this.graficos.Viewport.Width;
-            int alto = this.graficos.Viewport.Height;
             var btnTextura = contenido.Load<Texture2D>("Controles/boton");
             var btnFuente = contenido.Load<SpriteFont>("Fuentes/fuente");
 
             var btnNuevo = new Boton(btnTextura, btnFuente)
             {
-                Posicion = new Vector2(ancho/20, 9*alto/10),
+                Posicion = new Vector2(10, 380),
                 Texto = "A JUGAR",
             };
-            
+
             btnNuevo.Click += btnNuevoClick;
 
             var btnOpciones = new Boton(btnTextura, btnFuente)
             {
-                Posicion = new Vector2(6*ancho/20, 9*alto/10),
+                Posicion = new Vector2(210, 380),
                 Texto = "Opciones",
             };
 
@@ -41,7 +39,7 @@ namespace BubbleBlower.Estados
 
             var btnCreditos = new Boton(btnTextura, btnFuente)
             {
-                Posicion = new Vector2(11*ancho/20, 9*alto / 10),
+                Posicion = new Vector2(410, 380),
                 Texto = "Creditos",
 
             };
@@ -49,21 +47,21 @@ namespace BubbleBlower.Estados
             btnCreditos.Click += btnCreditosClick;
 
 
-            var btnRecords = new Boton(btnTextura, btnFuente)
+            var btnSalir = new Boton(btnTextura, btnFuente)
             {
-                Posicion = new Vector2(16 * ancho / 20, 9*alto / 10),
-                Texto = "Records",
+                Posicion = new Vector2(610, 380),
+                Texto = "Salir",
             };
 
-            btnRecords.Click += btnRecordsClick;
+            btnSalir.Click += btnSalirClick;
 
             componentes = new List<Componente>()
-            {
-                btnNuevo,
-                btnOpciones,
-                btnCreditos,
-                btnRecords,
-            };
+      {
+        btnNuevo,
+        btnOpciones,
+        btnCreditos,
+        btnSalir,
+      };
         }
 
         public override void Dibujar(GameTime tiempo, SpriteBatch spriteBatch)
@@ -76,39 +74,36 @@ namespace BubbleBlower.Estados
             spriteBatch.End();
         }
 
-        private void btnRecordsClick(object sender, EventArgs e)
+        private void btnSalirClick(object sender, EventArgs e)
         {
-            juego.cambiarEstado(new EstadoRecords(juego, graficos, contenido));
-    
+            juego.Exit();
         }
 
         private void btnOpcionesClick(object sender, EventArgs e)
         {
-            juego.cambiarEstado(new EstadoOpciones(juego, graficos, contenido));
+            Console.WriteLine("Prueba: Se ha pulsado el botón \"opciones\"");
         }
 
         private void btnCreditosClick(object sender, EventArgs e)
         {
-            juego.cambiarEstado(new EstadoCreditos(juego, graficos, contenido));
+            Console.WriteLine("Prueba: Se ha pulsado el botón \"creditos\"");
         }
 
 
         private void btnNuevoClick(object sender, EventArgs e)
         {
             juego.cambiarEstado(new EstadoJuego(juego, graficos, contenido));
-
         }
 
         public override void PosActualizado(GameTime gameTime)
         {
+            // Borrado de sprites no necesitados
         }
 
         public override void Actualizar(GameTime tiempo)
         {
-            
             foreach (var componente in componentes)
                 componente.Actualizar(tiempo);
-              
         }
 
     }
