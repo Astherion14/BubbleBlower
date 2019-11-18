@@ -1,8 +1,8 @@
 ﻿//*Agradecimientos hasta la fecha: Chlorinar Font: Caffen Fonts
-   // <a href = "https://www.freepik.com/free-photos-vectors/frame" > Frame vector created by starline - www.freepik.com</a>
-    
+// <a href = "https://www.freepik.com/free-photos-vectors/frame" > Frame vector created by starline - www.freepik.com</a>
+// Photo by Josephine Bredehoft on Unsplash 
 
-   
+
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -18,6 +18,12 @@ namespace BubbleBlower
     {
         GraphicsDeviceManager graficos;
         SpriteBatch spriteBatch;
+        private Texture2D background;
+        private bool effectosSonido;
+        private bool musica;
+        private int vol;
+
+
 
         private Estado estadoActual;
         private Estado estadoSiguiente;
@@ -39,7 +45,7 @@ namespace BubbleBlower
         {
             return this.musica;
         }
-        
+
         public int getVol()
         {
             return this.vol;
@@ -47,11 +53,11 @@ namespace BubbleBlower
 
         public void setVol(int volumen)
         {
-            if (volumen<0)
+            if (volumen < 0)
             {
                 this.vol = 0;
             }
-            else if (volumen>100)
+            else if (volumen > 100)
             {
                 this.vol = 100;
             }
@@ -68,12 +74,18 @@ namespace BubbleBlower
         {
             estadoSiguiente = estado;
         }
-        
+
         public Game1()
         {
             graficos = new GraphicsDeviceManager(this);
+            setMusica(true);
+            setEffectosSonido(true);
+            setVol(100);
+            graficos.PreferredBackBufferWidth = 3 * GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 4;  // set this value to the desired width of your window
+            graficos.PreferredBackBufferHeight = 3 * GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 4;   // set this value to the desired height of your window
+            graficos.ApplyChanges();
             Content.RootDirectory = "Content";
-        } 
+        }
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -85,6 +97,7 @@ namespace BubbleBlower
         {
             IsMouseVisible = true;
             base.Initialize();
+
         }
 
         /// <summary>
@@ -93,6 +106,7 @@ namespace BubbleBlower
         /// </summary>
         protected override void LoadContent()
         {
+            background = Content.Load<Texture2D>("Controles/background");
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             estadoActual = new EstadoMenu(this, graficos.GraphicsDevice, Content);
@@ -115,7 +129,7 @@ namespace BubbleBlower
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime tiempo)
         {
-            if (estadoSiguiente!=null)
+            if (estadoSiguiente != null)
             {
                 estadoActual = estadoSiguiente;
                 estadoSiguiente = null;
@@ -132,7 +146,11 @@ namespace BubbleBlower
         protected override void Draw(GameTime tiempo)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            spriteBatch.Begin();
 
+            spriteBatch.Draw(background, new Rectangle(0, 0, 2 * GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height, 2 * GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width), Color.White);
+
+            spriteBatch.End();
             estadoActual.Dibujar(tiempo, spriteBatch);
 
             base.Draw(tiempo);
