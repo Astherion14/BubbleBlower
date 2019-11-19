@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using BubbleBlower.Controles;
+using System.IO;
 
 namespace BubbleBlower.Estados
 {
@@ -165,7 +166,6 @@ namespace BubbleBlower.Estados
                 componentes.Add(btnMasVolumen);
                 componentes.Add(btnMenosVolumen);
             
-
                 if (juego.getMusica())
                 {
                     componentes.Add(btnMusicaMarcado);
@@ -183,24 +183,28 @@ namespace BubbleBlower.Estados
                     componentes.Add(btnEffectosSonidoDesmarcado);
                 }
 
+
             }
         }
 
         private void btnConfirmSiClick(object sender, EventArgs e)
         {
-            //Aqui va el limpiado del archivo
+            FileStream fcreate = File.Open("C:\\records.txt", FileMode.Create);
+
             juego.setLimpiar(false);
             juego.cambiarEstado(new EstadoOpciones(juego, graficos, contenido));
-            
+            juego.reproducirEfecto(0);
         }
         private void btnConfirmNoClick(object sender, EventArgs e)
         {
+            juego.reproducirEfecto(0);
             juego.setLimpiar(false);
             juego.cambiarEstado(new EstadoOpciones(juego, graficos, contenido));
 
         }
         private void btnMusicaMarcadoClick(object sender, EventArgs e)
         {
+            juego.reproducirEfecto(0);
             juego.setCambioMusic(true);
             juego.setMusica(false);
             juego.cambiarEstado(new EstadoOpciones(juego, graficos, contenido));
@@ -209,9 +213,11 @@ namespace BubbleBlower.Estados
 
         private void btnMusicaDesmarcadoClick(object sender, EventArgs e)
         {
+
             juego.setCambioMusic(true);
             juego.setMusica(true);
             juego.cambiarEstado(new EstadoOpciones(juego, graficos, contenido));
+            juego.reproducirEfecto(0);
 
         }
 
@@ -224,14 +230,17 @@ namespace BubbleBlower.Estados
         }
         private void btnEffectosSonidoDesmarcadoClick(object sender, EventArgs e)
         {
+
             juego.setCambioMusic(true);
             juego.setEffectosSonido(true);
             juego.cambiarEstado(new EstadoOpciones(juego, graficos, contenido));
+            juego.reproducirEfecto(0);
 
         }
 
         private void btnMasVolumenClick(object sender, EventArgs e)
         {
+            juego.reproducirEfecto(0);
             juego.setCambioMusic(true);
             juego.setVol(juego.getVol() + 10);
             juego.cambiarEstado(new EstadoOpciones(juego, graficos, contenido));
@@ -239,6 +248,7 @@ namespace BubbleBlower.Estados
         }
         private void btnMenosVolumenClick(object sender, EventArgs e)
         {
+            juego.reproducirEfecto(0);
             juego.setCambioMusic(true);
             juego.setVol(juego.getVol()-10);
             juego.cambiarEstado(new EstadoOpciones(juego, graficos, contenido));
@@ -247,6 +257,7 @@ namespace BubbleBlower.Estados
 
         private void btnLimpiarClick(object sender, EventArgs e)
         {
+            juego.reproducirEfecto(0);
             juego.setLimpiar(true);
             juego.cambiarEstado(new EstadoOpciones(juego, graficos, contenido));
 
@@ -255,6 +266,7 @@ namespace BubbleBlower.Estados
 
         private void btnMenuPrincipalClick(object sender, EventArgs e)
         {
+            juego.reproducirEfecto(0);
             juego.cambiarEstado(new EstadoMenu(juego, graficos, contenido));
         }
 

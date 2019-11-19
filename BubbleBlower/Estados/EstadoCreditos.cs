@@ -20,8 +20,9 @@ namespace BubbleBlower.Estados
             int ancho = this.graficos.Viewport.Width;
             int alto = this.graficos.Viewport.Height;
             var btnTexturaVolver = contenido.Load<Texture2D>("Controles/menuPrincipal");
-            var btnFuente = contenido.Load<SpriteFont>("Fuentes/fuente");
-            var btnFuente2 = contenido.Load<Texture2D>("Objetos/esferaAzul");
+            var btnFuente = contenido.Load<SpriteFont>("Fuentes/fuente3");
+            var btnFuente2 = contenido.Load<SpriteFont>("Fuentes/fuente");
+
 
             var btnMenuPrincipal = new Boton(btnTexturaVolver, btnFuente)
             {
@@ -31,13 +32,37 @@ namespace BubbleBlower.Estados
 
             btnMenuPrincipal.Click += btnMenuPrincipalClick;
 
-            var burb = new Burbuja(ancho / 40, btnFuente2, new Vector2(ancho / 2, alto / 2), ancho, alto)
+            var agrTxt1 = new Texto(btnFuente, "Agradecimientos")
             {
-                velocidadX = 5f,
-                velocidadY = -1f,
-                
+                Posicion = new Vector2(ancho / 4, alto / 10)
             };
-            componentes.Add(burb);
+
+            componentes.Add(agrTxt1);
+
+            var agrTxt2 = new Texto(btnFuente2, "Fuente Chlorinar: Caffen Fonts")
+            {
+                Posicion = new Vector2(ancho / 4, 2*alto / 10)
+            };
+
+            componentes.Add(agrTxt2);
+
+            var agrTxt3 = new Texto(btnFuente2, "Fondo de aplicacion: Foto de Josephine Bredehoft en Unsplash")
+            {
+                Posicion = new Vector2(ancho / 8, 3 * alto / 10)
+            };
+
+            componentes.Add(agrTxt3);
+
+
+            var agrTxt4 = new Texto(btnFuente2, "Tema de fondo:nightWalk por airtone (c) copyright Licencia bajo Creative Commons Attribution license.")
+            {
+                Posicion = new Vector2(0, 4 * alto / 10)
+            };
+
+            componentes.Add(agrTxt4);
+
+
+
             componentes.Add(btnMenuPrincipal);
 
 
@@ -45,11 +70,13 @@ namespace BubbleBlower.Estados
 
         private void btnMenuPrincipalClick(object sender, EventArgs e)
         {
+            juego.reproducirEfecto(0);
             juego.cambiarEstado(new EstadoMenu(juego, graficos, contenido));
         }
 
         public override void Actualizar(GameTime tiempo)
         {
+            
             foreach (var componente in componentes)
                 componente.Actualizar(tiempo);
         }
