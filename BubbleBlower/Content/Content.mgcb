@@ -154,3 +154,9 @@
 /processorParam:TextureFormat=Color
 /build:Objetos/esferaVioleta.png
 
+#begin Sonidos/fondo.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Sonidos/fondo.mp3
+

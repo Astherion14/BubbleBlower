@@ -21,6 +21,7 @@ namespace BubbleBlower.Estados
             int alto = this.graficos.Viewport.Height;
             var btnTexturaVolver = contenido.Load<Texture2D>("Controles/menuPrincipal");
             var btnFuente = contenido.Load<SpriteFont>("Fuentes/fuente");
+            var btnFuente2 = contenido.Load<Texture2D>("Objetos/esferaAzul");
 
             var btnMenuPrincipal = new Boton(btnTexturaVolver, btnFuente)
             {
@@ -30,6 +31,13 @@ namespace BubbleBlower.Estados
 
             btnMenuPrincipal.Click += btnMenuPrincipalClick;
 
+            var burb = new Burbuja(ancho / 40, btnFuente2, new Vector2(ancho / 2, alto / 2), ancho, alto)
+            {
+                velocidadX = 5f,
+                velocidadY = -1f,
+                
+            };
+            componentes.Add(burb);
             componentes.Add(btnMenuPrincipal);
 
 
