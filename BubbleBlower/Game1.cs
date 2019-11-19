@@ -1,6 +1,8 @@
-﻿//*Agradecimientos hasta la fecha: Chlorinar Font: Caffen Fonts
+﻿//Agradecimientos hasta la fecha: 
+//Chlorinar Font: Caffen Fonts
 // <a href = "https://www.freepik.com/free-photos-vectors/frame" > Frame vector created by starline - www.freepik.com</a>
-// Photo by Josephine Bredehoft on Unsplash 
+// Photo by Josephine Bredehoft on Unsplash
+//nightWalk by airtone (c) copyright 2017 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/airtone/56520 
 
 
 
@@ -8,6 +10,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using BubbleBlower.Estados;
+using Microsoft.Xna.Framework.Media;
 
 namespace BubbleBlower
 {
@@ -23,12 +26,21 @@ namespace BubbleBlower
         private bool musica;
         private int vol;
         private bool limpiar;
-
+        private bool cambioMusic;
+        private Song musicaBackground;
 
 
         private Estado estadoActual;
         private Estado estadoSiguiente;
 
+        public void setCambioMusic(bool cambio)
+        {
+            this.cambioMusic = cambioMusic;
+        }
+        public bool getCambioMusic()
+        {
+            return cambioMusic;
+        }
         public void setLimpiar(bool limp)
         {
             this.limpiar = limp;
@@ -117,9 +129,15 @@ namespace BubbleBlower
         protected override void LoadContent()
         {
             background = Content.Load<Texture2D>("Controles/background");
+            musicaBackground = Content.Load<Song>("Sonidos/fondo");
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             estadoActual = new EstadoMenu(this, graficos.GraphicsDevice, Content);
+            MediaPlayer.Play(musicaBackground);
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Volume = vol/100;
+            cambioMusic = false;
+            
             // TODO: use this.Content to load your game content here
         }
 
@@ -144,6 +162,21 @@ namespace BubbleBlower
                 estadoActual = estadoSiguiente;
                 estadoSiguiente = null;
             }
+
+            if (cambioMusic)
+            {
+                if (!musica)
+                {
+                    MediaPlayer.IsMuted = true;
+                }
+                if (musica)
+                {
+                    MediaPlayer.IsMuted = false;
+                }
+                MediaPlayer.Volume = vol / 100;
+                setCambioMusic(false);
+            }
+            
             estadoActual.Actualizar(tiempo);
             estadoActual.PosActualizado(tiempo);
             base.Update(tiempo);

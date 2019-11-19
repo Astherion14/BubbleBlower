@@ -201,6 +201,7 @@ namespace BubbleBlower.Estados
         }
         private void btnMusicaMarcadoClick(object sender, EventArgs e)
         {
+            juego.setCambioMusic(true);
             juego.setMusica(false);
             juego.cambiarEstado(new EstadoOpciones(juego, graficos, contenido));
 
@@ -208,6 +209,7 @@ namespace BubbleBlower.Estados
 
         private void btnMusicaDesmarcadoClick(object sender, EventArgs e)
         {
+            juego.setCambioMusic(true);
             juego.setMusica(true);
             juego.cambiarEstado(new EstadoOpciones(juego, graficos, contenido));
 
@@ -215,12 +217,14 @@ namespace BubbleBlower.Estados
 
         private void btnEffectosSonidoMarcadoClick(object sender, EventArgs e)
         {
+            juego.setCambioMusic(true);
             juego.setEffectosSonido(false);
             juego.cambiarEstado(new EstadoOpciones(juego, graficos, contenido));
 
         }
         private void btnEffectosSonidoDesmarcadoClick(object sender, EventArgs e)
         {
+            juego.setCambioMusic(true);
             juego.setEffectosSonido(true);
             juego.cambiarEstado(new EstadoOpciones(juego, graficos, contenido));
 
@@ -228,12 +232,14 @@ namespace BubbleBlower.Estados
 
         private void btnMasVolumenClick(object sender, EventArgs e)
         {
+            juego.setCambioMusic(true);
             juego.setVol(juego.getVol() + 10);
             juego.cambiarEstado(new EstadoOpciones(juego, graficos, contenido));
 
         }
         private void btnMenosVolumenClick(object sender, EventArgs e)
         {
+            juego.setCambioMusic(true);
             juego.setVol(juego.getVol()-10);
             juego.cambiarEstado(new EstadoOpciones(juego, graficos, contenido));
 

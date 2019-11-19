@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace BubbleBlower.Controles
 {
-    class Burbuja : Componente
+    public class Burbuja : Componente
     {
         #region Atributos
 
@@ -36,7 +36,7 @@ namespace BubbleBlower.Controles
 
         public Burbuja(float rad, Texture2D textura, Vector2 posicion, int ancho, int alto)
         {
-            this.escala = (2*rad/textura.Width);
+            this.escala = (2*rad/textura.Height);
             this.colisionParedBol = false;
             this.ancho = ancho;
             this.alto = alto;
@@ -229,15 +229,13 @@ namespace BubbleBlower.Controles
 
         public override void Actualizar(GameTime tiempo)
         {
-            if (!colisionParedBol)
-            {
+
                 posicion.X += velocidadX;
                 posicion.Y += velocidadY;
                 centro.X = posicion.X + radio;
                 centro.Y = posicion.Y + radio;
                 colisionPared(ancho, alto);
 
-            }
         }
 
         public override void Dibujar(GameTime tiempo, SpriteBatch spriteBatch)
