@@ -36,6 +36,7 @@ namespace BubbleBlower.Estados
 
         private void btnMenuPrincipalClick(object sender, EventArgs e)
         {
+            juego.reproducirEfecto(0);
             juego.cambiarEstado(new EstadoMenu(juego, graficos, contenido));
         }
 

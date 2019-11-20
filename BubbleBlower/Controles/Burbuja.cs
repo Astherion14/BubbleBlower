@@ -79,6 +79,7 @@ namespace BubbleBlower.Controles
                     this.posicion.Y += 1;
                 }
                 velocidadY = 0;
+                velocidadX = 0f; 
                 colisionParedBol = true;
             }
 
@@ -99,7 +100,7 @@ namespace BubbleBlower.Controles
                 }
                 double distX=Math.Abs(this.centro.X-burbuja.centro.X);
                 double distY=Math.Abs(this.centro.Y-burbuja.centro.Y);
-
+                /*
                 if (this.centro.X<burbuja.centro.X)
                 {
                     if (this.centro.Y >= burbuja.centro.Y)
@@ -158,7 +159,7 @@ namespace BubbleBlower.Controles
                         }
 
                     }
-
+                    
                 }
                 else
                 {
@@ -219,7 +220,7 @@ namespace BubbleBlower.Controles
                     }
 
                 }
-
+                */
 
             }
             return caso;

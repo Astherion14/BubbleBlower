@@ -1,7 +1,5 @@
 ﻿//Agradecimientos hasta la fecha: 
-//Chlorinar Font: Caffen Fonts
-// <a href = "https://www.freepik.com/free-photos-vectors/frame" > Frame vector created by starline - www.freepik.com</a>
-// Photo by Josephine Bredehoft on Unsplash
+
 //nightWalk by airtone (c) copyright 2017 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/airtone/56520 
 
 
@@ -9,8 +7,11 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 using BubbleBlower.Estados;
 using Microsoft.Xna.Framework.Media;
+using System.Collections.Generic;
+
 
 namespace BubbleBlower
 {
@@ -19,23 +20,34 @@ namespace BubbleBlower
     /// </summary>
     public class Game1 : Game
     {
+        List<SoundEffect> soundEffects;
         GraphicsDeviceManager graficos;
         SpriteBatch spriteBatch;
         private Texture2D background;
         private bool effectosSonido;
         private bool musica;
-        private int vol;
+        private float vol;
         private bool limpiar;
         private bool cambioMusic;
         private Song musicaBackground;
+        private int puntuacion;
 
 
         private Estado estadoActual;
         private Estado estadoSiguiente;
 
+
+        public void setPuntuacion(int puntuacion)
+        {
+            this.puntuacion = puntuacion;
+        }
+        public int getPuntuacion()
+        {
+            return this.puntuacion;
+        }
         public void setCambioMusic(bool cambio)
         {
-            this.cambioMusic = cambioMusic;
+            this.cambioMusic = cambio;
         }
         public bool getCambioMusic()
         {
@@ -67,12 +79,12 @@ namespace BubbleBlower
             return this.musica;
         }
 
-        public int getVol()
+        public float getVol()
         {
             return this.vol;
         }
 
-        public void setVol(int volumen)
+        public void setVol(float volumen)
         {
             if (volumen < 0)
             {
@@ -89,7 +101,11 @@ namespace BubbleBlower
         }
 
 
-
+        public void reproducirEfecto(int efecto){ 
+            if(effectosSonido){
+                soundEffects[efecto].Play();
+            }
+        }
 
         public void cambiarEstado(Estado estado)
         {
@@ -103,10 +119,12 @@ namespace BubbleBlower
             setEffectosSonido(true);
             setVol(100);
             setLimpiar(false);
+            setCambioMusic(true);
             graficos.PreferredBackBufferWidth = 3 * GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 4;  // set this value to the desired width of your window
             graficos.PreferredBackBufferHeight = 3 * GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 4;   // set this value to the desired height of your window
             graficos.ApplyChanges();
             Content.RootDirectory = "Content";
+            soundEffects = new List<SoundEffect>();
         }
 
         /// <summary>
@@ -128,6 +146,8 @@ namespace BubbleBlower
         /// </summary>
         protected override void LoadContent()
         {
+            soundEffects.Add(Content.Load<SoundEffect>("Sonidos/colision"));
+            soundEffects.Add(Content.Load<SoundEffect>("Sonidos/plop"));
             background = Content.Load<Texture2D>("Controles/background");
             musicaBackground = Content.Load<Song>("Sonidos/fondo");
             // Create a new SpriteBatch, which can be used to draw textures.
@@ -173,8 +193,9 @@ namespace BubbleBlower
                 {
                     MediaPlayer.IsMuted = false;
                 }
+                SoundEffect.MasterVolume=vol/100;
                 MediaPlayer.Volume = vol / 100;
-                setCambioMusic(false);
+                cambioMusic=false;
             }
             
             estadoActual.Actualizar(tiempo);

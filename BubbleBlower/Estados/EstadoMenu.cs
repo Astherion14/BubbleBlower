@@ -69,6 +69,7 @@ namespace BubbleBlower.Estados
 
         public override void Dibujar(GameTime tiempo, SpriteBatch spriteBatch)
         {
+
             spriteBatch.Begin();
 
             foreach (var componente in componentes)
@@ -79,23 +80,27 @@ namespace BubbleBlower.Estados
 
         private void btnRecordsClick(object sender, EventArgs e)
         {
+            juego.reproducirEfecto(0);
             juego.cambiarEstado(new EstadoRecords(juego, graficos, contenido));
     
         }
 
         private void btnOpcionesClick(object sender, EventArgs e)
         {
+            juego.reproducirEfecto(0);
             juego.cambiarEstado(new EstadoOpciones(juego, graficos, contenido));
         }
 
         private void btnCreditosClick(object sender, EventArgs e)
         {
+            juego.reproducirEfecto(0);
             juego.cambiarEstado(new EstadoCreditos(juego, graficos, contenido));
         }
 
 
         private void btnNuevoClick(object sender, EventArgs e)
         {
+            juego.reproducirEfecto(0);
             juego.cambiarEstado(new EstadoJuego(juego, graficos, contenido));
 
         }
