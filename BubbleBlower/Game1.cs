@@ -114,6 +114,7 @@ namespace BubbleBlower
 
         public Game1()
         {
+            setPuntuacion(0);
             graficos = new GraphicsDeviceManager(this);
             setMusica(true);
             setEffectosSonido(true);

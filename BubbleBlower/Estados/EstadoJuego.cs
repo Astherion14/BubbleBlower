@@ -16,11 +16,15 @@ namespace BubbleBlower.Estados
     {
         private List<Componente> componentes = new List<Componente>();
         private List<Componente> componenteInfo = new List<Componente>();
+        private List<Componente> colisiones = new List<Componente>();
 
         public bool fin = false;
         public bool kDown = false;
         public Texture2D esfSiguiente;
         public Texture2D esfActual;
+        public Texture2D esfAuxiliar;
+
+
         public EstadoJuego(Game1 juego, GraphicsDevice graficos, ContentManager contenido)
         : base(juego, graficos, contenido)
         {
@@ -37,7 +41,9 @@ namespace BubbleBlower.Estados
             Random random = new Random();
             int randomNumber = random.Next(1, 5);
             var esfRandom = esfVerde;
-            esfSiguiente = esfRoja; 
+            esfSiguiente = esfRoja;
+            esfActual = esfVerde;
+            esfAuxiliar = esfVioleta;
             var flecha = new Flecha(apuntar)
             {
                 posicion = new Vector2(ancho / 2, alto),
@@ -66,7 +72,7 @@ namespace BubbleBlower.Estados
                             default:esfRandom=esfAzul;
                                 break;
                         }
-                        var burb = new Burbuja(ancho / 40, esfRandom, new Vector2(j*ancho/20, i*alto / 13), ancho, alto)
+                        var burb = new Burbuja(ancho / 40, esfRandom, new Vector2(j*ancho/20, i*ancho / 20), ancho, alto)
                         {
                             velocidadX = 0f,
                             velocidadY = 0f,
@@ -100,7 +106,7 @@ namespace BubbleBlower.Estados
                                 esfRandom = esfAzul;
                                 break;
                         }
-                        var burb = new Burbuja(ancho / 40, esfRandom, new Vector2(g * ancho / 20+(ancho/40), i * alto / 13), ancho, alto)
+                        var burb = new Burbuja(ancho / 40, esfRandom, new Vector2(g * ancho / 20+(ancho/40), i * ancho / 20), ancho, alto)
                         {
                             velocidadX = 0f,
                             velocidadY = 0f,
@@ -133,10 +139,6 @@ namespace BubbleBlower.Estados
             var esfRandom = esfVerde;
 
             if(!fin){
-
-            
-            
-
             
                 if (Keyboard.GetState().IsKeyDown(Keys.Space) && !kDown)
                 {
@@ -167,10 +169,18 @@ namespace BubbleBlower.Estados
                         velocidadY = 0,
 
                     };
+                    var burb2 = new Burbuja(ancho / 40, esfAuxiliar, new Vector2(3 * ancho / 5, 92 * alto / 100), ancho, alto)
+                    {
+                        velocidadX = 0,
+                        velocidadY = 0,
+                    };
 
                     esfActual = esfSiguiente;
-                    esfSiguiente = esfRandom;
-                    componentes.Add(burbujaActual);
+                    esfSiguiente = esfAuxiliar;
+                    esfAuxiliar = esfRandom;
+                    componenteInfo.Clear();
+                    componenteInfo.Add(burb2);
+                    componenteInfo.Add(burbujaActual);
 
                     var burb = new Burbuja(ancho / 40, esfActual, new Vector2(95*ancho / 200, 95*alto / 100), ancho, alto)
                     {
@@ -184,34 +194,42 @@ namespace BubbleBlower.Estados
                     kDown=true;
                 }
 
-                /*            if (kDown)
-                            {
-                                foreach (var componente in componentes)
-                                {
-                                    if (componente != componentes[0])
-                                    {
-                                        int comp = componentes.Count;
-                                        comp -= 1;
-                                        Burbuja b = (Burbuja)componente;
-                                        Burbuja lanzada = (Burbuja)componentes[comp];
-                                        lanzada.colisionBurbuja(b);
 
-                                    }
-                                }
-                                kDown = false;
-                            }
-                */
+                    foreach (var componente in componentes)
+                    {
+                        int comp = componentes.Count;
+                        comp -= 1;
+                        if (componente != componentes[0] && componente!=componentes[comp])
+                        {
+
+                            Burbuja b = (Burbuja)componente;
+                            Burbuja lanzada = (Burbuja)componentes[comp];
+                        if (lanzada.colisionBurbuja(b) != 0)
+                        {
+                            kDown = false;
+                            juego.reproducirEfecto(0);
+                        }
+
+                        }
+                    }
+                    
+                
+
 
                 //dejo esto para que se pueda ver la funcionalidad
-                if (Keyboard.GetState().IsKeyUp(Keys.Space))
+               /* if (Keyboard.GetState().IsKeyUp(Keys.Space))
                 {
                     kDown = false;
                 }
-
+               //*/ 
                 foreach (var componente in componentes)
+                {
                     componente.Actualizar(tiempo);
+                }
                 foreach (var componente in componenteInfo)
+                {
                     componente.Actualizar(tiempo);
+                }
             }
             else
             {
@@ -248,6 +266,8 @@ namespace BubbleBlower.Estados
 
             foreach (var componente in componentes)
                 componente.Dibujar(tiempo, spriteBatch);
+            foreach (var componente in componenteInfo)
+                componente.Dibujar(tiempo, spriteBatch);
 
             spriteBatch.End();
         }
@@ -255,5 +275,11 @@ namespace BubbleBlower.Estados
         public override void PosActualizado(GameTime tiempo)
         {
         }
-    }
+
+        public void burbujasExplotan(Burbuja comprobada)
+        {
+           List<Vector2> posiciones = new List<Vector2>();
+
+        }
+}
 }

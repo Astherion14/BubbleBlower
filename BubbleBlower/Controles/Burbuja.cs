@@ -16,11 +16,14 @@ namespace BubbleBlower.Controles
 
         private bool colisionParedBol;
         private bool colisionPompa;
-        private int mismoColor;
-        private Vector2 centro;
+        //private int mismoColor;
+        //private Vector2 centro;
         private int alto;
         private int ancho;
         private float escala;
+        private Rectangle rectangulo;
+        private int rWidth;
+        private int rHeight;
 
 
         #endregion
@@ -46,18 +49,23 @@ namespace BubbleBlower.Controles
             this.color = textura;
             this.velocidadX = 0f;
             this.velocidadY = 0f;
-            this.mismoColor = 0;
+            //this.mismoColor = 0;
             this.colisionPompa = false;
+            this.rWidth = (int)escala * textura.Width;
+            this.rHeight = (int)escala * textura.Height;
+            this.rectangulo = new Rectangle((int)posicion.X,(int)posicion.Y,rWidth,rHeight);
         }
 
         public void colisionPared( int ancho, int alto)
         {
             if (this.posicion.X > (ancho - 2*radio))
             {
-                while (this.posicion.X + radio > ancho)
+                while (this.posicion.X + 2*radio > ancho)
                 {
                     this.posicion.X -= 1;
                 }
+                this.rectangulo = new Rectangle((int)posicion.X, (int)posicion.Y, rWidth, rHeight);
+
                 velocidadX = velocidadX * -1;
 
             }
@@ -68,6 +76,8 @@ namespace BubbleBlower.Controles
                 {
                     this.posicion.X += 1;
                 }
+                this.rectangulo = new Rectangle((int)posicion.X, (int)posicion.Y, rWidth, rHeight);
+
                 velocidadX = velocidadX * -1;
 
             }
@@ -78,6 +88,7 @@ namespace BubbleBlower.Controles
                 {
                     this.posicion.Y += 1;
                 }
+                this.rectangulo = new Rectangle((int)posicion.X, (int)posicion.Y, rWidth, rHeight);
                 velocidadY = 0;
                 velocidadX = 0f; 
                 colisionParedBol = true;
@@ -88,6 +99,116 @@ namespace BubbleBlower.Controles
         public int colisionBurbuja(Burbuja burbuja)
         {
             int caso = 0;
+            if (this.rectangulo.Intersects(burbuja.rectangulo))
+            {
+                this.velocidadX = 0;
+                this.velocidadY = 0;
+                int dX = (int)Math.Abs(this.posicion.X-burbuja.posicion.X);
+                int dY = (int)Math.Abs(this.posicion.Y - burbuja.posicion.Y);
+
+                if (this.posicion.X<= burbuja.posicion.X)
+                {
+                    if (this.posicion.Y<= burbuja.posicion.Y)
+                    {
+                        if (dX == dY || (dX < dY && dX >= dY / 2) || (dY < dX && dY >= dX / 2))
+                        {
+                            caso = 1;
+                            this.posicion = new Vector2(burbuja.posicion.X-radio,burbuja.posicion.Y-2*radio);
+                            this.rectangulo = new Rectangle((int)posicion.X, (int)posicion.Y, rWidth, rHeight);
+
+                        }
+                        else if (dX>dY)
+                        {
+                            caso = 3;
+                            this.posicion = new Vector2(burbuja.posicion.X-2*radio, burbuja.posicion.Y);
+                            this.rectangulo = new Rectangle((int)posicion.X, (int)posicion.Y, rWidth, rHeight);
+
+                        }
+                        else
+                        {
+                            caso = 1;
+                            this.posicion = new Vector2(burbuja.posicion.X - radio, burbuja.posicion.Y - 2 * radio);
+                            this.rectangulo = new Rectangle((int)posicion.X, (int)posicion.Y, rWidth, rHeight);
+                        }
+
+                    }
+                    else
+                    {
+                        if (dX == dY || (dX < dY && dX >= dY / 2) || (dY < dX && dY >= dX / 2))
+                        {
+                            caso = 5;
+                            this.posicion = new Vector2(burbuja.posicion.X-radio, burbuja.posicion.Y+2*radio);
+                            this.rectangulo = new Rectangle((int)posicion.X, (int)posicion.Y, rWidth, rHeight);
+                        }
+                        else if (dX > dY)
+                        {
+                            caso = 3;
+                            this.posicion = new Vector2(burbuja.posicion.X - 2 * radio, burbuja.posicion.Y);
+                            this.rectangulo = new Rectangle((int)posicion.X, (int)posicion.Y, rWidth, rHeight);
+                        }
+                        else
+                        {
+                            caso = 5;
+                            this.posicion = new Vector2(burbuja.posicion.X - radio, burbuja.posicion.Y + 2 * radio);
+                            this.rectangulo = new Rectangle((int)posicion.X, (int)posicion.Y, rWidth, rHeight);
+                        }
+
+                    }
+
+                }
+
+                else
+                {
+                    if (this.posicion.Y <= burbuja.posicion.Y)
+                    {
+                        if (dX == dY || (dX < dY && dX >= dY / 2) || (dY < dX && dY >= dX / 2))
+                        {
+                            caso = 2;
+                            this.posicion = new Vector2(burbuja.posicion.X+radio, burbuja.posicion.Y-2*radio);
+                            this.rectangulo = new Rectangle((int)posicion.X, (int)posicion.Y, rWidth, rHeight);
+                        }
+                        else if (dX > dY)
+                        {
+                            caso = 4;
+                            this.posicion = new Vector2(burbuja.posicion.X+2*radio, burbuja.posicion.Y);
+                            this.rectangulo = new Rectangle((int)posicion.X, (int)posicion.Y, rWidth, rHeight);
+                        }
+                        else
+                        {
+                            caso = 2;
+                            this.posicion = new Vector2(burbuja.posicion.X + radio, burbuja.posicion.Y - 2 * radio);
+                            this.rectangulo = new Rectangle((int)posicion.X, (int)posicion.Y, rWidth, rHeight);
+                        }
+
+                    }
+                    else
+                    {
+                        if (dX == dY || (dX < dY && dX >= dY / 2) || (dY < dX && dY >= dX / 2))
+                        {
+                            caso = 6;
+                            this.posicion = new Vector2(burbuja.posicion.X+radio, burbuja.posicion.Y+2*radio);
+                            this.rectangulo = new Rectangle((int)posicion.X, (int)posicion.Y, rWidth, rHeight);
+                        }
+                        else if (dX > dY)
+                        {
+                            caso = 4;
+                            this.posicion = new Vector2(burbuja.posicion.X + 2 * radio, burbuja.posicion.Y);
+                            this.rectangulo = new Rectangle((int)posicion.X, (int)posicion.Y, rWidth, rHeight);
+                        }
+                        else
+                        {
+                            caso = 6;
+                            this.posicion = new Vector2(burbuja.posicion.X + radio, burbuja.posicion.Y + 2 * radio);
+                            this.rectangulo = new Rectangle((int)posicion.X, (int)posicion.Y, rWidth, rHeight);
+                        }
+
+                    }
+
+                }
+
+            }
+            
+            /*
             if ((Math.Pow(((double) this.centro.X - (double)burbuja.centro.X), 2)+ Math.Pow(((double)this.centro.Y - (double)burbuja.centro.Y), 2))<(this.radio+burbuja.radio))
             {
                 
@@ -100,7 +221,7 @@ namespace BubbleBlower.Controles
                 }
                 double distX=Math.Abs(this.centro.X-burbuja.centro.X);
                 double distY=Math.Abs(this.centro.Y-burbuja.centro.Y);
-                /*
+                
                 if (this.centro.X<burbuja.centro.X)
                 {
                     if (this.centro.Y >= burbuja.centro.Y)
@@ -220,9 +341,9 @@ namespace BubbleBlower.Controles
                     }
 
                 }
-                */
+                
 
-            }
+        }*/
             return caso;
 
         }
@@ -233,8 +354,9 @@ namespace BubbleBlower.Controles
 
                 posicion.X += velocidadX;
                 posicion.Y += velocidadY;
-                centro.X = posicion.X + radio;
-                centro.Y = posicion.Y + radio;
+                //centro.X = posicion.X + radio;
+                //centro.Y = posicion.Y + radio;
+                this.rectangulo = new Rectangle((int)posicion.X, (int)posicion.Y, rWidth, rHeight);
                 colisionPared(ancho, alto);
 
         }
