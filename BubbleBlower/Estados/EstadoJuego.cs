@@ -280,6 +280,6 @@ namespace BubbleBlower.Estados
         {
            List<Vector2> componentes = new List<Vector2>();
 
-    }
+        }
 }
 }
