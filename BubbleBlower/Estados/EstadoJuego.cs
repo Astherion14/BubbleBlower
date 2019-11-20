@@ -278,7 +278,7 @@ namespace BubbleBlower.Estados
 
         public void burbujasExplotan(Burbuja comprobada)
         {
-           List<Vector2> componentes = new List<Vector2>();
+           List<Vector2> posiciones = new List<Vector2>();
 
         }
 }
