@@ -53,7 +53,7 @@ namespace BubbleBlower.Estados
             var btnRecords = new Boton(btnTextura, btnFuente)
             {
                 Posicion = new Vector2(16 * ancho / 20, 9*alto / 10),
-                Texto = "Records",
+                Texto = "Salir",
             };
 
             btnRecords.Click += btnRecordsClick;
@@ -80,9 +80,7 @@ namespace BubbleBlower.Estados
 
         private void btnRecordsClick(object sender, EventArgs e)
         {
-            juego.reproducirEfecto(0);
-            juego.cambiarEstado(new EstadoRecords(juego, graficos, contenido));
-    
+            juego.Exit();
         }
 
         private void btnOpcionesClick(object sender, EventArgs e)
