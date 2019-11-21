@@ -13,6 +13,7 @@
     <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Fuentes/fuente.spritefont</File>
     <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Fuentes/fuente2.spritefont</File>
     <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Fuentes/fuente3.spritefont</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Fuentes/fuente4.spritefont</File>
     <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Objetos/esferaAzul.png</File>
     <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Objetos/esferaRoja.png</File>
     <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Objetos/esferaVerde.png</File>
@@ -24,6 +25,7 @@
   </SourceFiles>
   <DestFiles>
     <File>Controles/boton.png</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -55,6 +55,20 @@ namespace BubbleBlower.Controles
             this.rHeight = (int)escala * textura.Height;
             this.rectangulo = new Rectangle((int)posicion.X,(int)posicion.Y,rWidth,rHeight);
         }
+        public Vector2 getPosicion()
+        {
+            return this.posicion;
+        }
+
+        public void setPosicion(Vector2 pos)
+        {
+            this.posicion = pos;
+        }
+
+        public Texture2D getTextura()
+        {
+            return this.color;
+        }
 
         public void colisionPared( int ancho, int alto)
         {

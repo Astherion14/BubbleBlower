@@ -4,26 +4,28 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Controles/Button.png</File>
-    <File>C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Controles/cajaDesmarcada.png</File>
-    <File>C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Controles/cajaMarcada.png</File>
-    <File>C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Controles/masVolumen.png</File>
-    <File>C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Controles/menosVolumen.png</File>
-    <File>C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Controles/menuPrincipal.png</File>
-    <File>C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Fuentes/fuente.spritefont</File>
-    <File>C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Fuentes/fuente2.spritefont</File>
-    <File>C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Fuentes/fuente3.spritefont</File>
-    <File>C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Objetos/esferaAzul.png</File>
-    <File>C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Objetos/esferaRoja.png</File>
-    <File>C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Objetos/esferaVerde.png</File>
-    <File>C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Objetos/esferaVioleta.png</File>
-    <File>C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Objetos/flecha.png</File>
-    <File>C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Sonidos/colision.wav</File>
-    <File>C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Sonidos/fondo.mp3</File>
-    <File>C:/Users/arturo.fernandez/source/repos/Garrund/BubbleBlower/BubbleBlower/Content/Sonidos/plop.wav</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Controles/Button.png</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Controles/cajaDesmarcada.png</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Controles/cajaMarcada.png</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Controles/masVolumen.png</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Controles/menosVolumen.png</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Controles/menuPrincipal.png</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Fuentes/fuente.spritefont</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Fuentes/fuente2.spritefont</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Fuentes/fuente3.spritefont</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Fuentes/fuente4.spritefont</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Objetos/esferaAzul.png</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Objetos/esferaRoja.png</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Objetos/esferaVerde.png</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Objetos/esferaVioleta.png</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Objetos/flecha.png</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Sonidos/colision.wav</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Sonidos/fondo.mp3</File>
+    <File>C:/Users/Garrund/Source/Repos/Garrund/BubbleBlower/BubbleBlower/Content/Sonidos/plop.wav</File>
   </SourceFiles>
   <DestFiles>
     <File>Controles/boton.png</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

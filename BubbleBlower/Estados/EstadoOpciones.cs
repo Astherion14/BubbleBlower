@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using BubbleBlower.Controles;
 using System.IO;
+using System.Reflection;
 
 namespace BubbleBlower.Estados
 {
@@ -189,7 +190,7 @@ namespace BubbleBlower.Estados
 
         private void btnConfirmSiClick(object sender, EventArgs e)
         {
-            FileStream fcreate = File.Open("C:\\records.txt", FileMode.Create);
+            FileStream fcreate = File.Open(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), FileMode.Create);
 
             juego.setLimpiar(false);
             juego.cambiarEstado(new EstadoOpciones(juego, graficos, contenido));

@@ -20,6 +20,8 @@ namespace BubbleBlower.Estados
             int alto = this.graficos.Viewport.Height;
             var btnTexturaVolver = contenido.Load<Texture2D>("Controles/menuPrincipal");
             var btnFuente = contenido.Load<SpriteFont>("Fuentes/fuente");
+            var btnFuente2 = contenido.Load<SpriteFont>("Fuentes/fuente3");
+
 
             var btnMenuPrincipal = new Boton(btnTexturaVolver, btnFuente)
             {
@@ -27,11 +29,16 @@ namespace BubbleBlower.Estados
                 Texto = "",
             };
 
+
             btnMenuPrincipal.Click += btnMenuPrincipalClick;
 
 
             componentes.Add(btnMenuPrincipal);
-
+            var txtConfirmacion = new Texto(btnFuente2, "Records")
+            {
+                Posicion = new Vector2(ancho / 3, alto / 10)
+            };
+            componentes.Add(txtConfirmacion);
         }
 
         private void btnMenuPrincipalClick(object sender, EventArgs e)
